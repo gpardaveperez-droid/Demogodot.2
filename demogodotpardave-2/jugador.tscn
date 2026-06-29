@@ -3,8 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://b6e5b8178imkh" path="res://IMG/icon.svg" id="1_16k11"]
 [ext_resource type="Script" uid="uid://drdepgouq4ppg" path="res://jugador.gd" id="1_omvyu"]
 
-[node name="Jugador" type="Node2D" unique_id=1055705934]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
+size = Vector2(133, 131)
+
+[node name="Jugador" type="CharacterBody2D" unique_id=1758335731]
 script = ExtResource("1_omvyu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1489374767]
 texture = ExtResource("1_16k11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1266580932]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_5h11f")
+debug_color = Color(0.8757754, 0.26254317, 0.57002455, 0.41960785)
