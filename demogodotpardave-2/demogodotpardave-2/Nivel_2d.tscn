@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://h1e0rcpbo20f"]
+
+[ext_resource type="Script" uid="uid://oj7iniic05mb" path="res://player.gd" id="1_asa2l"]
+[ext_resource type="Script" uid="uid://cdcjdx5slqiaf" path="res://nivel_2d.gd" id="1_b8lt7"]
+[ext_resource type="Texture2D" uid="uid://col1irp6w03tt" path="res://icon.svg" id="2_v723n"]
+[ext_resource type="Texture2D" uid="uid://rajfo2xt1p1f" path="res://WhatsApp Image 2026-06-30 at 5.07.00 PM.jpeg" id="3_v723n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0htq7"]
+size = Vector2(147, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6ipe"]
+size = Vector2(1178, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyxop"]
+size = Vector2(1179, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asa2l"]
+size = Vector2(732, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f16rx"]
+size = Vector2(47, 721)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0ksn"]
+size = Vector2(201, 195)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0htq7"]
+font_size = 100
+
+[node name="Nivel" type="Node2D" unique_id=169416985]
+script = ExtResource("1_b8lt7")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=440432862]
+position = Vector2(-2, 0)
+motion_mode = 1
+script = ExtResource("1_asa2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=640252043]
+position = Vector2(1013, 130)
+texture = ExtResource("2_v723n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=29225289]
+position = Vector2(1016.5, 130)
+shape = SubResource("RectangleShape2D_0htq7")
+
+[node name="ParedArriba" type="StaticBody2D" parent="." unique_id=219031277]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedArriba" unique_id=1462690765]
+position = Vector2(579, -19.5)
+shape = SubResource("RectangleShape2D_l6ipe")
+
+[node name="PaderAbajo" type="StaticBody2D" parent="." unique_id=1922117367]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaderAbajo" unique_id=137466977]
+position = Vector2(572.5, 653)
+shape = SubResource("RectangleShape2D_pyxop")
+
+[node name="ParedIzquierda" type="StaticBody2D" parent="." unique_id=1358351999]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedIzquierda" unique_id=1982173817]
+position = Vector2(2.0000007, 317)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_asa2l")
+
+[node name="ParedDerecha" type="StaticBody2D" parent="." unique_id=1941053257]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedDerecha" unique_id=331664579]
+position = Vector2(1160.5, 314.5)
+shape = SubResource("RectangleShape2D_f16rx")
+
+[node name="Enemy" type="Area2D" parent="." unique_id=1944478342]
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1605395163]
+position = Vector2(174, 497)
+texture = ExtResource("3_v723n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=1100067257]
+position = Vector2(176.5, 501.5)
+shape = SubResource("RectangleShape2D_l0ksn")
+
+[node name="MORI" type="Label" parent="." unique_id=1822068949]
+visible = false
+offset_left = -1603.0
+offset_top = -501.0
+offset_right = 2763.0
+offset_bottom = 1069.0
+text = "💀 MORI 💀"
+label_settings = SubResource("LabelSettings_0htq7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Enemy" to="." method="_on_enemy_body_entered"]
