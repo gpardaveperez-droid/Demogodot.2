@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Demogodotpardave2"
-run/main_scene="uid://xw2aa6arjqde"
+run/main_scene="uid://b7yhqheud4841"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

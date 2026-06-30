@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b7yhqheud4841"]
+
+[ext_resource type="Script" uid="uid://k7228ikbp1m7" path="res://node_2d.gd" id="1_onj8e"]
+[ext_resource type="Script" uid="uid://c8j5uqlbkeadh" path="res://jugador1.gd" id="2_ycdui"]
+[ext_resource type="Texture2D" uid="uid://cuksn0uk7jt01" path="res://icon.svg" id="3_okrwl"]
+[ext_resource type="Texture2D" uid="uid://rb0q8iyjgowa" path="res://Demogodot/enemigo.jpg" id="4_jnps4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
+size = Vector2(127, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8n8"]
+size = Vector2(612, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iqjx"]
+size = Vector2(403.5, 37.499992)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jx8tp"]
+size = Vector2(397.5, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nbp6"]
+size = Vector2(661, 30.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft2n7"]
+size = Vector2(177, 172)
+
+[node name="Node2D" type="Node2D" unique_id=757976375]
+script = ExtResource("1_onj8e")
+
+[node name="Plater1" type="CharacterBody2D" parent="." unique_id=1876250446]
+script = ExtResource("2_ycdui")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plater1" unique_id=216156792]
+position = Vector2(191, 179)
+texture = ExtResource("3_okrwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plater1" unique_id=1214714287]
+position = Vector2(189, 175)
+shape = SubResource("RectangleShape2D_5h11f")
+
+[node name="Paredarriba" type="StaticBody2D" parent="." unique_id=499859638]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredarriba" unique_id=680063441]
+position = Vector2(315, -81)
+shape = SubResource("RectangleShape2D_bx8n8")
+
+[node name="ParedIzquierda" type="StaticBody2D" parent="." unique_id=1393581469]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedIzquierda" unique_id=756417485]
+position = Vector2(-1.7499981, 98.25)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_5iqjx")
+
+[node name="ParedDerecha" type="StaticBody2D" parent="." unique_id=1053285208]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedDerecha" unique_id=1681579361]
+position = Vector2(633, 94.25)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_jx8tp")
+
+[node name="ParedAbajo" type="StaticBody2D" parent="." unique_id=2106544373]
+position = Vector2(6, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedAbajo" unique_id=229552850]
+position = Vector2(317, 287)
+shape = SubResource("RectangleShape2D_3nbp6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1129608942]
+position = Vector2(550, 28)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=611055480]
+position = Vector2(-121, -65)
+texture = ExtResource("4_jnps4")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=678216763]
+position = Vector2(-41.5, 16)
+shape = SubResource("RectangleShape2D_ft2n7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
